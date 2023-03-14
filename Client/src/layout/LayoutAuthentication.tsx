@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
+import { withErrorBoundary } from 'react-error-boundary'
+import ErrorComponent from '~/components/common/ErrorComponent'
 interface Props {
   children?: string | React.ReactNode
   heading: string
 }
-const LayoutAuthentication = ({ children, heading }: Props) => {
+const LayoutAuthentication: FC<Props> = ({ children, heading }) => {
   return (
     <div className='w-full min-h-screen p-10 bg-lite relative isolate'>
       <img
@@ -12,6 +14,7 @@ const LayoutAuthentication = ({ children, heading }: Props) => {
         className='hidden lg:block pointer-events-none  absolute top-0 bottom-0 left-0 right-0 w-full h-full z-[-1] mx-auto'
         alt='bg'
       />
+
       <Link to='/'>
         <img srcSet='/logo.png 2x' alt='app' className='inline-block mb-5 lg:mb-16' />
       </Link>
@@ -23,4 +26,6 @@ const LayoutAuthentication = ({ children, heading }: Props) => {
   )
 }
 
-export default LayoutAuthentication
+export default withErrorBoundary(LayoutAuthentication, {
+  FallbackComponent: ErrorComponent
+})

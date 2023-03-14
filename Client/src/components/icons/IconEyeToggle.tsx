@@ -1,6 +1,9 @@
-import React from "react";
-
-const IconEyeToggle = ({ open = false, onClick = () => {} }) => {
+import React, { FC } from "react";
+interface Props {
+  open: boolean
+  onClick: React.MouseEventHandler<SVGSVGElement>
+}
+const IconEyeToggle:FC<Props> = ({ open = false, onClick = () => {} }) => {
   if (open)
     return (
       <svg
