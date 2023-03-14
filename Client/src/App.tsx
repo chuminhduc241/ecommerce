@@ -1,17 +1,22 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
+
 import './App.css'
+import Hello from './components/Hello/Hello'
+import SignInPage from './pages/SignInPage'
 
 function App() {
   const [count, setCount] = useState(0)
+  let routes = useRoutes([{ path: '/', element: <SignInPage /> }])
+  return routes
+}
 
+const AppWrapper = () => {
   return (
-    <div className="App">
-       <h1 className="text-3xl font-bold text-blue-600">
-      Install & Setup Vite + React + Typescript + Tailwind CSS 3
-      </h1>
-    </div>
+    <Router>
+      <App />
+    </Router>
   )
 }
 
-export default App
+export default AppWrapper
