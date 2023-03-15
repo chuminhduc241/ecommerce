@@ -13,8 +13,8 @@ interface Props {
 }
 
 const Button: FC<Props> = (props) => {
-  const { type = 'button', children,kind = "primary", className = '', isLoading = false, ...rest } = props
-  const child = !!isLoading ? (
+  const { type = 'button', children, kind = 'primary', className = '', isLoading = false, ...rest } = props
+  const child = isLoading ? (
     <div className='w-10 h-10 border-4 border-white rounded-full border-t-transparent border-b-transparent animate-spin'></div>
   ) : (
     children
@@ -42,7 +42,7 @@ const Button: FC<Props> = (props) => {
     )
   return (
     <button
-      className={classNames(defaultClassName, !!isLoading ? 'opacity-50 pointer-events-none' : '', className)}
+      className={classNames(defaultClassName, isLoading ? 'opacity-50 pointer-events-none' : '', className)}
       type={type}
       {...rest}
     >

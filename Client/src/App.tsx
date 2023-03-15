@@ -1,23 +1,34 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, useRoutes } from 'react-router-dom'
-
+import React, { lazy, Suspense } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import LayoutDashboard from './layout/LayoutDashboard'
 
-import SignInPage from './pages/SignInPage'
-import SingUpPage from './pages/SingUpPage'
-
+const SingUpPage = lazy(() => import('./pages/SignUpPage'))
+const SignInPage = lazy(() => import('./pages/SignInPage'))
 function App() {
-  const [count, setCount] = useState(0)
-  let routes = useRoutes([{ path: '/', element: <SingUpPage /> }])
-  return routes
-}
+  const router = createBrowserRouter([
+    { path: '/', element: <SingUpPage /> },
+    {
+      path: '/sign-in',
+      element: <SignInPage />
+    },
+    {
+      path: '/',
+      element: <LayoutDashboard />,
+      children: [
+        {
+          path: 'profile',
+          element: <SignInPage />
+        }
+      ]
+    }
+  ])
 
-const AppWrapper = () => {
   return (
-    <Router>
-      <App />
-    </Router>
+    <Suspense>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }
 
-export default AppWrapper
+export default App

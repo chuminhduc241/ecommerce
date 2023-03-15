@@ -5,7 +5,7 @@ import ErrorComponent from '~/components/common/ErrorComponent'
 
 interface Props {
   text: string
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const ButtonGoogle: FC<Props> = ({ text = 'Sign up with google', onClick = () => {} }) => {
