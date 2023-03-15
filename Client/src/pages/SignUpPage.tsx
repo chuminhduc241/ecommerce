@@ -40,21 +40,21 @@ const SignUpPage = () => {
     }
   }
   return (
-    <LayoutAuthentication heading='Sign Up'>
+    <LayoutAuthentication heading='Đăng ký'>
       <p className='text-center font-normal lg:text-sm text-xs lg:font-medium mb-6 lg:mb-8'>
-        Already have an account ?{' '}
+        Bạn đã có tài khoản ?{' '}
         <Link to={'/sign-in'} className='text-primary font-medium'>
-          Sign in
+          Đăng nhập
         </Link>
       </p>
       <button className='flex items-center justify-center gap-x-3 w-full py-3 rounded-xl border border-strock text-text2 font-semibold mb-5'>
         <img srcSet='/icon-google.png  2x' alt='icon-google' />
-        <span className=''>Singn up with google</span>
+        <span className=''>Đăng ký bằng google</span>
       </button>
-      <p className='text-center font-normal text-xs mb-4 lg:text-sm lg:mb-8 text-text2'>Or sign up with email</p>
+      <p className='text-center font-normal text-xs mb-4 lg:text-sm lg:mb-8 text-text2'>Hoặc đăng ký bằng email</p>
       <form onSubmit={handleSubmit(handleSignUp)}>
         <FormGroup>
-          <Label htmlFor='name'>Full Name *</Label>
+          <Label htmlFor='name'>Họ tên *</Label>
           <Input control={control} name='name' placeholder='Jhon Doe' error={errors.name?.message?.toString()}></Input>
         </FormGroup>
         <FormGroup>
@@ -68,7 +68,7 @@ const SignUpPage = () => {
           ></Input>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor='password'>Password *</Label>
+          <Label htmlFor='password'>Mật khẩu *</Label>
           <Input
             control={control}
             name='password'
@@ -89,7 +89,7 @@ const SignUpPage = () => {
           </Checkbox>
         </div>
         <Button className='w-full' kind='primary' type='submit'>
-          Create my account
+          Đăng ký
         </Button>
       </form>
     </LayoutAuthentication>

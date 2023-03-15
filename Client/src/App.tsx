@@ -13,6 +13,10 @@ function App() {
       element: <SignInPage />
     },
     {
+      path: '/register',
+      element: <SingUpPage />
+    },
+    {
       path: '/',
       element: <LayoutDashboard />,
       children: [

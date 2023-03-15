@@ -11,8 +11,8 @@ import useToggleValue from '~/hooks/useToggleValue'
 import LayoutAuthentication from '~/layout/LayoutAuthentication'
 
 const schema = yup.object({
-  email: yup.string().email('Email không hợp lệ').required('This field is required'),
-  password: yup.string().required('This field is required').min(8, 'Password must be 8 character ')
+  email: yup.string().email('Email không hợp lệ').required('Vui lòng điền vào mục này.'),
+  password: yup.string().required('Vui lòng điền vào mục này.').min(8, 'Mật khẩu phải từ 8 ký tự')
 })
 const SignInPage = () => {
   const {
@@ -27,11 +27,11 @@ const SignInPage = () => {
 
   const handleSignIn = (values: any) => {}
   return (
-    <LayoutAuthentication heading='Welcome Back!'>
+    <LayoutAuthentication heading='Đăng Nhập'>
       <p className='mb-6 text-xs font-normal text-center lg:text-sm text-text3 lg:mb-8'>
-        Dont have an account?{' '}
+        Bạn chưa có tài khoản?{' '}
         <Link to='/register' className='font-medium underline text-primary'>
-          Sign up
+          Đăng ký
         </Link>
       </p>
       <ButtonGoogle text='Sign in with google'></ButtonGoogle>
@@ -46,12 +46,12 @@ const SignInPage = () => {
           ></Input>
         </FormGroup>
         <FormGroup>
-          <Label htmlFor='password'>Password *</Label>
+          <Label htmlFor='password'>Mật khẩu *</Label>
           <Input
             control={control}
             name='password'
             type={`${showPassword ? 'text' : 'password'}`}
-            placeholder='Enter Password'
+            placeholder='Nhập mật khẩu'
             error={errors.password?.message?.toString()}
           >
             <IconEyeToggle open={showPassword} onClick={handleTogglePassword}></IconEyeToggle>
@@ -59,11 +59,11 @@ const SignInPage = () => {
         </FormGroup>
         <FormGroup>
           <div className='text-right'>
-            <span className='inline-block text-sm font-medium text-primary'>Forgot password</span>
+            <span className='inline-block text-sm font-medium text-primary'>Quyên mật khẩu</span>
           </div>
         </FormGroup>
         <Button className='w-full' kind='primary' type='submit'>
-          Sign in
+          Đăng nhập
         </Button>
       </form>
     </LayoutAuthentication>
