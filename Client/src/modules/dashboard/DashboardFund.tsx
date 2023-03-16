@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const DashboardFund = () => {
+const DashboardFund:FC = () => {
   return (
     <div className="flex items-center text-base font-medium cursor-pointer gap-x-2 text-text2">
       <span>Fundrising for</span>
